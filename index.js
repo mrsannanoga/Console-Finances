@@ -100,5 +100,16 @@ var totalProfitLosses = 0;
  for(var i=0;i<finances.length;i++){
     totalProfitLosses += finances[i][1];
 }
-console.log("Total: $" + totalProfitLosses)
+console.log("Total: $" + totalProfitLosses);
 
+//Averages of the changes in Profit/Losses over the entire period
+
+//ProfitLosses values extracted from main array
+var profitLosses = [];
+for(var i=0; i<finances.length; i++){
+    profitLosses.push(finances[i][1]);
+}
+
+console.log(profitLosses);
+
+//count changes between profitLosses
