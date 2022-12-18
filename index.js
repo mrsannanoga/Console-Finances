@@ -110,6 +110,12 @@ for(var i=0; i<finances.length; i++){
     profitLosses.push(finances[i][1]);
 }
 
-console.log(profitLosses);
+//console.log(profitLosses);
 
 //count changes between profitLosses
+
+var changeCounter = 0;
+for(var i=1; i<profitLosses.length; i++){
+    changeCounter += (profitLosses[i] - profitLosses[i-1]) / (totalMonths - 1);
+}
+console.log("Avarage change: $" + changeCounter);
