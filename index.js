@@ -96,6 +96,7 @@ var totalMonths = finances.length;
 console.log("Total Months: " + totalMonths)
 
 //Total Profit&Losses
+
 var totalProfitLosses = 0;
 for (var i = 0; i < finances.length; i++) {
     totalProfitLosses += finances[i][1];
@@ -103,23 +104,6 @@ for (var i = 0; i < finances.length; i++) {
 console.log("Total: $" + totalProfitLosses);
 
 //Averages of the changes in Profit/Losses over the entire period
-
-//ProfitLosses values extracted from main array
-// var profitLosses = [];
-// for (var i = 0; i < finances.length; i++) {
-//     profitLosses.push(finances[i][1]);
-// }
-
-//console.log(profitLosses);
-
-//count changes between profitLosses
-
-// var changeCounter = 0;
-// for (var i = 1; i < profitLosses.length; i++) {
-//     changeCounter += (profitLosses[i] - profitLosses[i - 1]) / (totalMonths - 1);
-// }
-// console.log("Avarage change: $" + changeCounter);
-
 
 var changeCounter = 0;
 for (var i = 1; i < finances.length; i++) {
@@ -132,75 +116,42 @@ console.log("Avarage change: $" + changeCounter);
 
 // Greartest Increase
 
-
-
-// var n = profitLosses.length;
-// var curr_diff = Math.abs(profitLosses[i] - profitLosses[i - 1]);
-// var max_diff = [];
-// for (var i = 1; i < n; i++) {
-    
-//     max_diff = Math.max(max_diff, curr_diff);
-// }
-
-// console.log(max_diff);
-
-
-// var changesArr = [];
-// for (var i = 1; i < profitLosses.length; i++) {
-//     changesArr.push(profitLosses[i] - profitLosses[i - 1]);
-// }
-// console.log(changesArr);
-
-
 var changesArr = [];
 for (var i = 1; i < finances.length; i++) {
     changesArr.push([finances[i][0], finances[i][1] - finances[i-1][1]]);
 }
-console.log(changesArr);
-
-
-
-// var arr = changesArr;
-
-
-// var max = 0;
-
-// for (var i = 1; i < arr.length; ++i) {
-//   if (arr[i] > 0);
-//   max = Math.max(arr);
-  
-// }
-
-// console.log(max);
-
 
 
 var max = -Infinity;
-for (var i = 1; i < changesArr.length; i++) {
+var maxString = 0;
+for (var i = 0; i < changesArr.length; i++) {
 
     if (changesArr[i][1] > max) {
 
         max = changesArr[i][1];
-
+        maxString = changesArr[i][0];
     }
    
 
 
 }
 
-console.log("Greatest Increase in Profits: $" + max);
+
+console.log("Greatest Increase in Profits: " + maxString + "($" + max + ")");
+
 
 // Greatest Decrease
 
 var min = Infinity;
-for (var i = 1; i < changesArr.length; i++) {
+var minString = 0;
+for (var i = 0; i < changesArr.length; i++) {
 
     if (changesArr[i][1] < min) {
 
         min = changesArr[i][1];
-
+        minString = changesArr[i][0];
     }
 
 }
 
-console.log("Greatest Decrease in Profits: $" + min);
+console.log("Greatest Decrease in Profits:  " + minString + "($" + min + ")");
