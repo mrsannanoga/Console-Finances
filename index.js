@@ -111,7 +111,11 @@ for (var i = 1; i < finances.length; i++) {
     changeCounter += (finances[i][1] - finances[i-1][1]) / (totalMonths - 1);
 }
 
-console.log("Avarage change: $" + changeCounter);
+var roundedNumber = Math.round(changeCounter*Math.pow(10,2))/Math.pow(10,2)
+
+console.log("Avarage change: $" + roundedNumber);
+
+
 
 
 // Greartest Increase
